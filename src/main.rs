@@ -1,3 +1,5 @@
-fn main() {
-    println!("Hello, world!");
+use lib::test;
+
+pub fn main() {
+    test();
 }

@@ -1,4 +1,4 @@
-use lib::test;
+use lib::{test, create, delete};
 use clap::{Parser, Subcommand};
 use inquire::{Text, Password, Confirm, Select};
 
@@ -82,13 +82,15 @@ pub fn main() {
                         .unwrap()
                 },
             };
-
+            create(key, value, password);
         },
         Commands::Delete { } => {
-            // Database deleted!
+            delete();
         },
         _ => {
-            println!("Wah!")
+            if verbose {
+                println!("hey, how did you even activate the default case?");
+            }
         }
     }
 }
